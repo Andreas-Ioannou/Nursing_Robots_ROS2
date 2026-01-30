@@ -26,5 +26,5 @@ ros2 topic pub -1 /controller_selector std_msgs/msg/String "{data: MPPI}" \
 ### Next steps ###
 Make a web user interface for the user to control the robot and change controllers at run time
 
-Fix Custom MPC controller to work correctly
+Adjust controller parameters
 

@@ -118,7 +118,7 @@ controller_server:
       # change the line above to match it exactly.
 
       # MPC
-      N: 15
+      N: 10
       dt: 0.1
 
       # Limits
@@ -129,17 +129,26 @@ controller_server:
       dw_max: 2.5
 
       # Costs
-      w_pos: 6.0
-      w_yaw: 2.0
-      w_v: 0.2
-      w_w: 0.2
-      w_dv: 0.6
-      w_dw: 0.6
+      w_pos: 10.0
+      w_yaw: 0.05
+      w_v: 0.02
+      w_w: 0.02
+      w_dv: 0.2
+      w_dw: 0.2
+      w_progress: 0.4
+      v_ref: 0.20
+      progress_stop_dist: 0.6
+      w_costmap: 3.0
+      lethal_cost: 254.0
+      w_terminal_pos: 50.0
+      w_terminal_yaw: 2.0
+      yaw_stop_dist: 0.5
+      v_min: 0.0
 
       # Optimizer
-      opt_iters: 20
-      step_size: 0.3
-      grad_eps: 1e-3
+      opt_iters: 6
+      step_size: 0.2
+      grad_eps: 1e-2
 
       # Path handling
       prune_dist: 2.5
@@ -162,13 +171,16 @@ local_costmap:
       width: 2
       height: 2
       resolution: 0.01
-      robot_radius: 0.23
+      #robot_radius: 0.23
+      footprint: "[[-0.15, -0.25], [-0.15,  0.25], [ 0.15,  0.25], [ 0.15, -0.25]]"
+      footprint_padding: 0.01
+
       plugins: ["voxel_layer", "inflation_layer"]
 
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.25
+        inflation_radius: 0.35
 
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"

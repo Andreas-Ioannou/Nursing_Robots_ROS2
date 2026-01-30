@@ -16,7 +16,9 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       use_sim_time: True
-      robot_radius: 0.23
+      #robot_radius: 0.23
+      footprint: "[[-0.15, -0.25], [-0.15,  0.25], [ 0.15,  0.25], [ 0.15, -0.25]]"
+      footprint_padding: 0.01
       resolution: 0.01
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer","inflation_layer"]
@@ -40,5 +42,5 @@ global_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-        inflation_radius: 0.25
+        inflation_radius: 0.35
       always_send_full_costmap: True
