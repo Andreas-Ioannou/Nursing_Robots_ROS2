@@ -10,7 +10,7 @@ ros2 launch path_planner_server pathplanner.launch.py use_sim_time:=True
 
 
 
-### Currently ###
+### Change Controllers ###
 Able to change controller during run time (Terminal-4)
 
 ros2 topic pub -1 /controller_selector std_msgs/msg/String "{data: MPC}" \
@@ -21,10 +21,3 @@ ros2 topic pub -1 /controller_selector std_msgs/msg/String "{data: DWB}" \
 
 ros2 topic pub -1 /controller_selector std_msgs/msg/String "{data: MPPI}" \
   --qos-durability transient_local --qos-reliability reliable
-
-
-### Next steps ###
-Make a web user interface for the user to control the robot and change controllers at run time
-
-Adjust controller parameters
-
